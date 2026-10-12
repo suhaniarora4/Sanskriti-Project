@@ -1,4 +1,4 @@
-# 🇮🇳 Sanskriti – Indian Festivals & Cultural Heritage
+# Sanskriti – Indian Festivals & Cultural Heritage
 
 <p align="center">
   <b>Discover the Colours, Traditions, and Heritage of India</b>
