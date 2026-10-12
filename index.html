@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Festivals & Cultural Heritage</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-amber-50 text-stone-800 font-['Poppins',sans-serif] selection:bg-orange-500 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-stone-900/95 backdrop-blur-md border-b border-orange-500/30 text-white shadow-lg transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-500 to-red-600 flex items-center justify-center shadow-md animate-pulse">
+                        <i class="fa-solid fa-om text-white text-xl"></i>
+                    </div>
+                    <span class="font-['Cinzel'] font-bold text-xl sm:text-2xl bg-gradient-to-r from-amber-300 via-orange-400 to-red-400 bg-clip-text text-transparent">
+                        Sanskriti
+                    </span>
+                </div>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8 font-medium">
+                    <a href="#home" class="hover:text-amber-400 transition-colors">Home</a>
+                    <a href="#festivals" class="hover:text-amber-400 transition-colors">Festivals</a>
+                    <a href="#heritage" class="hover:text-amber-400 transition-colors">Heritage</a>
+                    <a href="#countdown" class="hover:text-amber-400 transition-colors">Countdown</a>
+                    <a href="#quiz" class="hover:text-amber-400 transition-colors">Trivia Quiz</a>
+                    <a href="#card-maker" class="bg-gradient-to-r from-amber-500 to-red-600 px-4 py-2 rounded-full text-white font-semibold shadow-md hover:opacity-90 transition-all">Greeting Card</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-amber-400 focus:outline-none text-2xl">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-stone-900 border-b border-stone-800 px-4 pt-2 pb-4 space-y-3">
+            <a href="#home" class="block py-2 hover:text-amber-400">Home</a>
+            <a href="#festivals" class="block py-2 hover:text-amber-400">Festivals</a>
+            <a href="#heritage" class="block py-2 hover:text-amber-400">Heritage</a>
+            <a href="#countdown" class="block py-2 hover:text-amber-400">Countdown</a>
+            <a href="#quiz" class="block py-2 hover:text-amber-400">Trivia Quiz</a>
+            <a href="#card-maker" class="block py-2 text-amber-400 font-semibold">Greeting Card</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="relative min-h-screen flex items-center justify-center bg-stone-900 text-white overflow-hidden pt-20">
+      <div class="absolute inset-0 z-0 bg-gradient-to-tr from-stone-950 via-red-950 to-amber-900 opacity-100 shadow-2xl"></div>
+        <div class="relative z-20 max-w-5xl mx-auto px-4 text-center mt-12">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 text-sm font-semibold tracking-wider uppercase mb-6 backdrop-blur-sm animate-bounce">
+                Incredible India • Unity in Diversity
+            </span>
+            <h1 class="font-['Cinzel'] font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-wide mb-6 leading-tight">
+                Discover the Soul of <span class="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">Indian Heritage</span>
+            </h1>
+            <p class="text-stone-300 text-lg sm:text-xl max-w-3xl mx-auto font-light mb-10 leading-relaxed">
+                Journey through thousands of years of timeless traditions, vibrant regional celebrations, magnificent architecture, and festivals that illuminate the spirit of over a billion hearts.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#festivals" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-orange-500 to-red-600 text-white font-semibold shadow-lg hover:shadow-orange-500/30 hover:scale-105 transition-all text-center">
+                    Explore Festivals <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+                <a href="#card-maker" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-stone-800/80 border border-amber-500/40 text-amber-300 font-semibold hover:bg-stone-800 transition-all text-center backdrop-blur-sm">
+                    Create Greeting Card
+                </a>
+            </div>
+
+            <!-- Quick Search Bar -->
+            <div class="mt-12 max-w-xl mx-auto bg-white/10 backdrop-blur-md p-2 rounded-full border border-white/20 flex items-center shadow-2xl">
+                <i class="fa-solid fa-search text-amber-400 ml-4 mr-2"></i>
+                <input type="text" id="global-search" placeholder="Search festivals, traditions, states (e.g., Diwali, Kerala)..." class="w-full bg-transparent text-white placeholder-stone-300 text-sm sm:text-base focus:outline-none px-2">
+                <button onclick="handleQuickSearch()" class="bg-amber-500 hover:bg-amber-600 text-stone-950 font-semibold px-6 py-2.5 rounded-full text-sm transition-all">Search</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Festivals Section -->
+    <section id="festivals" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="font-['Cinzel'] text-3xl sm:text-4xl font-bold text-stone-900 mb-4">Festivals of India</h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-amber-500 to-red-600 mx-auto rounded-full mb-4"></div>
+            <p class="text-stone-600 max-w-2xl mx-auto">Filter through vibrant regional celebrations that showcase colorful traditions, community harmony, and profound cultural roots.</p>
+            
+            <!-- Region Filter Tabs -->
+            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mt-8">
+                <button onclick="filterFestivals('all')" class="filter-btn active-tab px-5 py-2 rounded-full text-sm font-semibold transition-all bg-amber-500 text-stone-950 shadow-md">All India</button>
+                <button onclick="filterFestivals('North')" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all bg-stone-200 text-stone-700 hover:bg-amber-100">North</button>
+                <button onclick="filterFestivals('South')" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all bg-stone-200 text-stone-700 hover:bg-amber-100">South</button>
+                <button onclick="filterFestivals('East')" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all bg-stone-200 text-stone-700 hover:bg-amber-100">East</button>
+                <button onclick="filterFestivals('West')" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all bg-stone-200 text-stone-700 hover:bg-amber-100">West</button>
+                <button onclick="filterFestivals('National')" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all bg-stone-200 text-stone-700 hover:bg-amber-100">National</button>
+            </div>
+        </div>
+
+        <!-- Festival Cards Grid -->
+        <div id="festival-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Populated via script.js -->
+        </div>
+    </section>
+
+    <!-- Cultural Heritage & Monuments -->
+    <section id="heritage" class="py-24 bg-stone-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-amber-400 font-semibold tracking-widest uppercase text-sm">Architectural Wonders & Arts</span>
+                <h2 class="font-['Cinzel'] text-3xl sm:text-4xl font-bold mt-2 mb-4">Timeless Cultural Heritage</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-amber-500 to-red-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                <!-- Heritage Card 1 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-2xl h-96">
+                    <!-- Heritage Card 1: Taj Mahal -->
+<img src="images/taj-mahal.jpg"
+     alt="Taj Mahal"> class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-transparent p-6 flex flex-col justify-end">
+                        <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider mb-1">Agra, Uttar Pradesh</span>
+                        <h3 class="font-['Cinzel'] text-xl font-bold mb-2">Taj Mahal</h3>
+                        <p class="text-stone-300 text-sm line-clamp-2">An ivory-white marble mausoleum on the right bank of the river Yamuna, symbolizing eternal love.</p>
+                    </div>
+                </div>
+                <!-- Heritage Card 2 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-2xl h-96">
+                    <img src="images/varanasi.jpg" alt="Varanasi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-transparent p-6 flex flex-col justify-end">
+                        <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider mb-1">Varanasi, Uttar Pradesh</span>
+                        <h3 class="font-['Cinzel'] text-xl font-bold mb-2">Ghats of Varanasi</h3>
+                        <p class="text-stone-300 text-sm line-clamp-2">The spiritual capital of India, famous for the mesmerizing evening Ganga Aarti along the holy river.</p>
+                    </div>
+                </div>
+                <!-- Heritage Card 3 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-2xl h-96">
+                    <img src="images/kathakali.jpg" alt="Classical Dance" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-transparent p-6 flex flex-col justify-end">
+                        <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider mb-1">Performing Arts</span>
+                        <h3 class="font-['Cinzel'] text-xl font-bold mb-2">Classical Dances</h3>
+                        <p class="text-stone-300 text-sm line-clamp-2">Bharatanatyam, Kathak, Kathakali, and Odissi narrating ancient mythological epics through mudras.</p>
+                    </div>
+                </div>
+                <!-- Heritage Card 4 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-2xl h-96">
+                    <img src="images/ellora.jpg" alt="Ajanta & Ellora" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-transparent p-6 flex flex-col justify-end">
+                        <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider mb-1">Aurangabad, Maharashtra</span>
+                        <h3 class="font-['Cinzel'] text-xl font-bold mb-2">Ajanta & Ellora Caves</h3>
+                        <p class="text-stone-300 text-sm line-clamp-2">Rock-cut cave monuments representing magnificent ancient engineering and Buddhist, Hindu, & Jain art.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Festival Countdown Section -->
+    <section id="countdown" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="bg-gradient-to-br from-amber-500 to-red-600 rounded-3xl p-8 sm:p-14 text-white shadow-2xl relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl">
+                <i class="fa-solid fa-fireworks"></i>
+            </div>
+            <span class="bg-white/20 px-4 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">Live Festival Tracker</span>
+            <h2 class="font-['Cinzel'] text-3xl sm:text-5xl font-extrabold mt-4 mb-2">Diwali 2026 Countdown</h2>
+            <p class="text-amber-100 max-w-xl mx-auto mb-8">Get ready to light up diyas and welcome prosperity!</p>
+            
+            <div id="countdown-timer" class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto">
+                <div class="bg-black/30 backdrop-blur-md rounded-2xl p-4 border border-white/20">
+                    <span id="days" class="text-3xl sm:text-5xl font-bold block">00</span>
+                    <span class="text-xs uppercase tracking-wider text-amber-200">Days</span>
+                </div>
+                <div class="bg-black/30 backdrop-blur-md rounded-2xl p-4 border border-white/20">
+                    <span id="hours" class="text-3xl sm:text-5xl font-bold block">00</span>
+                    <span class="text-xs uppercase tracking-wider text-amber-200">Hours</span>
+                </div>
+                <div class="bg-black/30 backdrop-blur-md rounded-2xl p-4 border border-white/20">
+                    <span id="minutes" class="text-3xl sm:text-5xl font-bold block">00</span>
+                    <span class="text-xs uppercase tracking-wider text-amber-200">Minutes</span>
+                </div>
+                <div class="bg-black/30 backdrop-blur-md rounded-2xl p-4 border border-white/20">
+                    <span id="seconds" class="text-3xl sm:text-5xl font-bold block">00</span>
+                    <span class="text-xs uppercase tracking-wider text-amber-200">Seconds</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trivia Quiz Section -->
+    <section id="quiz" class="py-24 bg-stone-100 border-t border-stone-200">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <span class="text-orange-600 font-semibold tracking-widest uppercase text-sm">Test Your Knowledge</span>
+                <h2 class="font-['Cinzel'] text-3xl font-bold text-stone-900 mt-2">Indian Festival Trivia</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-amber-500 to-red-600 mx-auto rounded-full mt-3"></div>
+            </div>
+
+            <div id="quiz-container" class="bg-white rounded-3xl shadow-xl p-6 sm:p-10 border border-stone-200">
+                <!-- Dynamically updated via script.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Greeting Card Maker -->
+    <section id="card-maker" class="py-24 max-w-5xl mx-auto px-4">
+        <div class="text-center mb-12">
+            <span class="text-orange-600 font-semibold tracking-widest uppercase text-sm">Spread Joy</span>
+            <h2 class="font-['Cinzel'] text-3xl sm:text-4xl font-bold text-stone-900 mt-2">Festival Greeting Card Maker</h2>
+            <div class="w-20 h-1 bg-gradient-to-r from-amber-500 to-red-600 mx-auto rounded-full mt-3"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <!-- Controls -->
+            <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-xl border border-stone-200 space-y-5">
+                <div>
+                    <label class="block text-sm font-semibold text-stone-700 mb-1">Select Festival</label>
+                    <select id="card-festival" onchange="updateCardPreview()" class="w-full bg-stone-50 border border-stone-300 rounded-xl px-4 py-3 text-stone-800 focus:outline-none focus:border-amber-500">
+                        <option value="Diwali">Diwali - Festival of Lights</option>
+                        <option value="Holi">Holi - Festival of Colors</option>
+                        <option value="Navratri">Navratri - Festival of Devotion</option>
+                        <option value="Pongal / Sankranti">Pongal / Makar Sankranti</option>
+                        <option value="Eid">Eid-ul-Fitr</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-stone-700 mb-1">Recipient Name</label>
+                    <input type="text" id="card-recipient" oninput="updateCardPreview()" placeholder="e.g., Dear Family & Friends" class="w-full bg-stone-50 border border-stone-300 rounded-xl px-4 py-3 text-stone-800 focus:outline-none focus:border-amber-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-stone-700 mb-1">Custom Message</label>
+                    <textarea id="card-message" oninput="updateCardPreview()" rows="3" class="w-full bg-stone-50 border border-stone-300 rounded-xl px-4 py-3 text-stone-800 focus:outline-none focus:border-amber-500">May your home be filled with joy, peace, and prosperity this festive season!</textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-stone-700 mb-1">Your Name (Sender)</label>
+                    <input type="text" id="card-sender" oninput="updateCardPreview()" placeholder="e.g., Sharma Family" class="w-full bg-stone-50 border border-stone-300 rounded-xl px-4 py-3 text-stone-800 focus:outline-none focus:border-amber-500">
+                </div>
+                <button onclick="copyCardMessage()" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-red-600 text-white font-semibold shadow-md hover:opacity-90 transition-all">
+                    <i class="fa-solid fa-copy mr-2"></i> Copy Greeting Message
+                </button>
+            </div>
+
+            <!-- Preview Card -->
+            <div id="card-preview-box" class="relative rounded-3xl p-8 sm:p-12 text-white shadow-2xl flex flex-col justify-between overflow-hidden min-h-[420px] bg-gradient-to-br from-amber-600 via-orange-600 to-red-700 border-4 border-amber-300/40">
+                <div class="absolute -right-12 -top-12 text-9xl opacity-15">
+                    <i id="card-preview-icon" class="fa-solid fa-fireworks"></i>
+                </div>
+                <div>
+                    <span id="preview-tag" class="text-xs uppercase tracking-widest bg-white/20 px-3 py-1 rounded-full font-semibold">Diwali Greeting</span>
+                    <h3 id="preview-recipient" class="font-['Cinzel'] text-2xl sm:text-3xl font-bold mt-6 mb-3">Dear Family & Friends,</h3>
+                    <p id="preview-msg" class="text-amber-100 text-base sm:text-lg leading-relaxed">May your home be filled with joy, peace, and prosperity this festive season!</p>
+                </div>
+                <div class="pt-8 border-t border-white/20 flex justify-between items-center">
+                    <div>
+                        <span class="text-xs text-amber-200 block">Warm Wishes From:</span>
+                        <span id="preview-sender" class="font-bold text-lg">Sharma Family</span>
+                    </div>
+                    <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                        <i class="fa-solid fa-om text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Festival Details Modal -->
+    <div id="festival-modal" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div id="modal-content" class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl p-6 sm:p-8 relative transform scale-95 opacity-0 transition-all duration-300">
+            <!-- Populated via script.js -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-stone-950 text-stone-400 py-16 border-t border-stone-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div>
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-amber-500 to-red-600 flex items-center justify-center text-white">
+                        <i class="fa-solid fa-om text-sm"></i>
+                    </div>
+                    <span class="font-['Cinzel'] font-bold text-xl text-white">Sanskriti</span>
+                </div>
+                <p class="text-sm text-stone-400 leading-relaxed">Celebrating the eternal heritage, rich festivals, arts, and vibrant traditions of Incredible India.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#home" class="hover:text-amber-400 transition-colors">Home</a></li>
+                    <li><a href="#festivals" class="hover:text-amber-400 transition-colors">Festivals Explorer</a></li>
+                    <li><a href="#heritage" class="hover:text-amber-400 transition-colors">Cultural Heritage</a></li>
+                    <li><a href="#countdown" class="hover:text-amber-400 transition-colors">Festival Countdown</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">Incredible India</h4>
+                <p class="text-sm text-stone-400 mb-4">Experience unity in diversity through timeless cultural celebrations.</p>
+                <div class="flex space-x-4 text-xl">
+                    <a href="#" class="text-amber-400 hover:scale-110 transition-transform"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="text-amber-400 hover:scale-110 transition-transform"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="text-amber-400 hover:scale-110 transition-transform"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="text-amber-400 hover:scale-110 transition-transform"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-stone-900 text-center text-xs text-stone-500">
+            &copy; 2026 Sanskriti. Preserving & Celebrating Indian Festivals and Cultural Heritage.
+        </div>
+    </footer>
+
+    <!-- JavaScript Link -->
+    <script src="script.js"></script>
+</body>
+</html>
